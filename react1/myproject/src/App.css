@@ -174,7 +174,8 @@
   font-size: 15px;
   line-height: 22px;
   color: #F7F7F7;
-  top: 57%;
+  margin-top:20%;
+  top: 10%;
   left: 140px;
 }
 .jurnal{
@@ -450,6 +451,12 @@
   }
   .analog{
     height: 484px;
+  }
+  .analog_btn{
+    top: 25%;
+  }
+  .analog_link{
+    top: 40%;
   }
   .box{
     margin-left: 80%;
