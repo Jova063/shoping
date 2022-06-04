@@ -1,7 +1,6 @@
-import React, { Component } from 'react'
+import React from 'react'
 import{ Nav, Navbar }from "react-bootstrap"
 import img from "../../pages/img/logo.png"
-import img1 from "../../pages/img/Frame.png"
 import img2 from "../../pages/img/Rectangle.png"
 import img3 from "../../pages/img/2.png"
 import img4 from "../../pages/img/1.png"
@@ -10,13 +9,41 @@ import img6 from "../../pages/img/Recangle3.png"
 import img7 from "../../pages/img/men.png"
 import img8 from "../../pages/img/women.png"
 import img9 from "../../pages/img/object.png"
-import img10 from "../../pages/img/ins.png"
-import img11 from "../../pages/img/tv.png"
-import img12 from "../../pages/img/fes.png"
-export default class Dashboard extends Component {
-  render() {
-    return (
-      <div>
+import {BiCart} from "react-icons/bi"
+import {BsInstagram} from "react-icons/bs"
+import {AiOutlineTwitter} from "react-icons/ai"
+import {AiFillFacebook} from "react-icons/ai"
+import 'antd/dist/antd.css';
+import { useState } from 'react';
+import { Rate } from 'antd';
+
+import { Modal } from 'antd';
+import { Pagination } from 'antd';
+const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
+export default function Dashboard() {
+  const [value, setValue] = useState(3);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
+  return (
+    <div>
+       
+      <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+      </Modal>
     <Navbar className='navbar'  expand="lg">
         <Navbar.Brand href="#" className='logo'>Ugmonk  <img src={img} alt=""className='logo-img'/></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -31,7 +58,7 @@ export default class Dashboard extends Component {
             <Nav.Link href="#action3">Analog</Nav.Link>
             
           </Nav>
-          <img src={img1} alt=''/>
+          <BiCart className='biCart' type="primary" onClick={showModal} />
         </Navbar.Collapse>
     </Navbar>
     
@@ -56,7 +83,12 @@ export default class Dashboard extends Component {
             <img src={img3} alt='' className='card_img'/>
             <div className='card_title'><h6>Analog Starter Kit</h6><h6 className='card_title1'>(Walnut)</h6></div>
             <div className='card_info'><p className='card-info2'>$103.00</p><p className='card-info1'>$89.00</p></div>
+            <span>
+      <Rate tooltips={desc} onChange={setValue} value={value} />
+      {value ? <span className="ant-rate-text">{desc[value - 1]}</span> : ''}
+    </span>
           </div>
+
           <div className='card'>
             <img src={img4} alt='' className='card_img'/>
             <div className='card_title'><h6>Analog Starter Kit</h6><h6 className='card_title1'>(3-Pack)</h6></div>
@@ -71,7 +103,12 @@ export default class Dashboard extends Component {
             <img src={img6} alt='' className='card_img'/>
             <div className='card_title'><h6>Analog Starter Kit</h6><h6 className='card_title1'>(Walnut)</h6></div>
             <div className='card_info'><p>$38.00</p></div>
-          </div></div>
+          </div>
+           
+          </div>
+          <div className="pagination">
+<Pagination defaultCurrent={1} total={40}  />
+</div>
           <button className='card_btn'><a className='card_btn1' href='#!'>Shop New Arrivals </a> </button>
         </div>
         <section className='analog'>
@@ -149,9 +186,9 @@ export default class Dashboard extends Component {
              <img src={img} alt="" className='footer_right3'/>
             </div>
             <div className='img_footer'>
-              <img src={img10}alt=''/>
-              <img src={img11}alt=''/>
-              <img src={img12}alt=''/>
+              <BsInstagram className='bsIns'/>
+              <AiOutlineTwitter className='aiOut'/>
+              <AiFillFacebook className='aiFill'/>
             </div>
             </div>
 
@@ -159,6 +196,5 @@ export default class Dashboard extends Component {
         
 
     </div>
-    )
-  }
+  )
 }

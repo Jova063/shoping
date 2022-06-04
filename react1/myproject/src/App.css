@@ -433,6 +433,24 @@
 .img_footer img{
   margin-left: 8%;
 }
+.biCart{
+  font-size: 30px;
+}
+.bsIns{
+  font-size: 30px;
+  margin-right: 10px;
+}
+.aiOut{
+  font-size: 30px;
+  margin-right: 10px;
+}
+.aiFill{
+  font-size: 30px;
+}
+.pagination{
+  display: flex;justify-content: center;
+  margin-top: 5%;
+}
 
 @media(max-width:991px){
   .navbar_text {
